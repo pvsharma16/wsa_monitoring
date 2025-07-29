@@ -1,0 +1,27 @@
+import streamlit as st
+import pandas as pd
+import os
+
+st.set_page_config(page_title="Auto CSV Reader", layout="wide")
+st.title("📂 Auto CSV Reader")
+
+# Define the path to the CSV file
+csv_path = "data/my_data.csv"  # Update this path as needed
+
+if os.path.exists(csv_path):
+    try:
+        df = pd.read_csv(csv_path)
+        st.success(f"Loaded CSV from: `{csv_path}`")
+
+        # Show content
+        st.subheader("🔍 Preview of the Data")
+        st.dataframe(df)
+
+        st.subheader("📊 Basic Stats")
+        st.write(f"Rows: {df.shape[0]}, Columns: {df.shape[1]}")
+        st.write(df.describe())
+    except Exception as e:
+        st.error(f"Failed to load the CSV. Error: {e}")
+else:
+    st.warning(f"CSV file not found at path: `{csv_path}`")
+
