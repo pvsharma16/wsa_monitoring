@@ -6,7 +6,7 @@ st.set_page_config(page_title="Auto CSV Reader", layout="wide")
 st.title("📂 Auto CSV Reader")
 
 # Define the path to the CSV file
-csv_path = "data/my_data.csv"  # Update this path as needed
+csv_path = "C:\Users\user\OneDrive - WHITESPACE FUND LLP\WSA Trading\1. Real Time Trading\1. Trading Floor\1. Trading LIVE\2025\Monitoring.csv"
 
 if os.path.exists(csv_path):
     try:
