@@ -6,7 +6,7 @@ from io import StringIO
 st.title("📥 Load CSV from SharePoint")
 
 # Replace with your actual shared URL
-sharepoint_url = "https://whitespacefund-my.sharepoint.com/:x:/g/personal/fanar_iskif_whitespacealpha_com/Eay2NBFK6RNKmKAKni25yqUBPLH4TeVhlzOgJ1uVreHpZA?rtime=kdZawXfO3Ug"
+sharepoint_url = "https://whitespacefund-my.sharepoint.com/:x:/g/personal/fanar_iskif_whitespacealpha_com/Eay2NBFK6RNKmKAKni25yqUBPLH4TeVhlzOgJ1uVreHpZA?e=lHJKp0"
 
 try:
     # Simulate browser-like download
