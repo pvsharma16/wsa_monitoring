@@ -1,14 +1,22 @@
 import streamlit as st
 import pandas as pd
+import requests
+from io import StringIO
 
-st.title("📁 CSV from OneDrive")
+st.title("📥 Load CSV from SharePoint")
 
-# Replace with your actual download link
-onedrive_url = "https://onedrive.live.com/download.aspx?resid=ABCDEF123456!789"
+# Replace with your actual shared URL
+sharepoint_url = "https://whitespacefund-my.sharepoint.com/:x:/g/personal/fanar_iskif_whitespacealpha_com/Eay2NBFK6RNKmKAKni25yqUBPLH4TeVhlzOgJ1uVreHpZA?rtime=kdZawXfO3Ug"
 
 try:
-    df = pd.read_csv(onedrive_url)
-    st.success("CSV loaded from OneDrive!")
-    st.dataframe(df)
+    # Simulate browser-like download
+    response = requests.get(sharepoint_url)
+    if response.status_code == 200:
+        csv_content = StringIO(response.text)
+        df = pd.read_csv(csv_content)
+        st.success("Loaded CSV from SharePoint!")
+        st.dataframe(df)
+    else:
+        st.error(f"Failed to fetch file: HTTP {response.status_code}")
 except Exception as e:
-    st.error(f"Failed to load CSV: {e}")
+    st.error(f"Error: {e}")
